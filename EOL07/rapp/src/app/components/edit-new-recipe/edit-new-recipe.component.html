@@ -1,0 +1,55 @@
+<div class='cover-photo-holder'>
+    <img src="{{ recipe_in_progress.cover_photo ? recipe_in_progress.cover_photo : '/assets/emptybowl.jpg' }}" />
+</div>
+<div class="newrecipe panel panel-default">
+    <div class="panel-heading">
+        <h4>Add New Recipe</h4>
+    </div>
+    <div class="panel-body">
+            <div class="form-group">
+                <input class="form-control" [(ngModel)]="recipe_in_progress.title" type="text" placeholder="Recipe Title"
+                    name="title" />
+            </div>
+            <div class="form-group">
+                <textarea rows="5" [(ngModel)]="recipe_in_progress.description" class="form-control" placeholder="Description"
+                    name="description"></textarea>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.feeds_this_many" placeholder="Feeds this many"
+                    name="feeds_this_many" />
+                <span class="input-group-addon">people</span>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.preparation_time"
+                    placeholder="Preparation Time" name="preparation_time" />
+                <span class="input-group-addon">minutes</span>
+            </div>
+            <div class="form-group">
+                <label> Ingredients </label>
+                <div class="ingredient" *ngFor="let ingredient of recipe_in_progress.ingredients; let i = index">
+                    <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.ingredients[i].ingredient"
+                        placeholder="Ingredient" />
+                    <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.ingredients[i].measure"
+                        placeholder="How Much?" />
+                    <a (click)="removeIngredientAtIndex(i)">Remove</a>
+                </div>
+                <div class="add-ingredient">
+                    <input type="button" value='Add' (click)="addIngredientPressed()" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label> Instructions </label>
+                <div class="instruction" *ngFor="let instruction of recipe_in_progress.instructions; let i = index">
+                    <input class="form-control" type="text" [(ngModel)]="recipe_in_progress.instructions[i].instruction"
+                        placeholder="What to do?" />
+                    <a (click)="removeInstructionAtIndex(i)">Remove</a>
+                </div>
+                <div class="add-instruction">
+                    <input type="button" value='Add' (click)="addInstructionPressed()" />
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="button" value="Add Recipe" (click)="addRecipeClicked()" />
+            </div>
+    </div>
+</div>

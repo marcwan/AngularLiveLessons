@@ -1,0 +1,66 @@
+
+div.cover-photo-holder img {
+    width: 300px;
+    height: 300px;
+    margin: 5px;
+    object-fit: cover;
+}
+
+div.newrecipe {
+    max-width: 500px;
+}
+
+div.input-group {
+    margin: 10px 0;
+}
+
+div.ingredient input.form-control {
+    width: 40%; 
+    display: inline;
+}
+div.ingredient {
+    margin-bottom: 7px;
+}
+div.ingredient a, div.instruction a {
+    cursor: pointer;
+    font-size: 80%;
+}
+
+div.instruction input.form-control {
+    width: 50%;
+    display: inline;
+}
+div.instruction {
+    margin-bottom: 7px;
+}
+
+div.instruction img {
+    float: right;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+div.add-ingredient input, div.add-instruction input {
+    width: 50px;
+}
+
+input[type=button].btn {
+    background-color: #428bca;
+    color: white;
+}
+
+@media (min-width: 850px) {
+    div.cover-photo-holder {
+        float: right;
+    }        
+}
+
+input.ng-valid, textarea.ng-valid {
+    border-left: 5px solid #42a948;
+}
+
+input.ng-invalid, textarea.ng-invalid {
+    border-left: 5px solid #a94442;
+}

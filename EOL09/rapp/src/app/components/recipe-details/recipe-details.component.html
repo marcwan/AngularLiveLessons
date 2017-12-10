@@ -1,0 +1,53 @@
+
+<p *ngIf="!recipe && !load_error">
+    Loading recipe … please wait a moment!
+</p>
+
+<div *ngIf="load_error">
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        {{ error_text }} - <a [routerLink]="['/recipes']">Back to recipe list</a>
+    </div>
+</div>
+
+<div *ngIf="recipe && !load_error" class='recipe panel panel-default'>
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ recipe.title }}</h3>
+    </div>
+    <div class="panel-body">
+        <div class='cover-photo-holder'>
+            <img [src]="imageUrl(recipe.cover_photo, '/assets/emptybowl.jpg')" />
+            <div>
+                {{ recipe.date_added | date:'mediumDate' }}
+            </div>
+        </div>
+        <p>{{ recipe.description | swearingfilter }}</p>
+        <div>
+            <div class="data-title">Preparation Time:</div>
+            <div>{{ recipe.preparation_time }}</div>
+            <div class="data-title">Feeds how many:</div>
+            <div>{{ recipe.feeds_this_many }}</div>
+        </div>
+
+        <div id="ingredients">
+            <h4> Ingredients </h4>
+            <ul>
+                <li *ngFor="let ingredient of recipe.ingredients">
+                    {{ ingredient.ingredient}} ({{ ingredient.measure }})
+                </li>
+            </ul>
+        </div>
+
+        <div id="instructions">
+            <h4> Instructions </h4>
+            <ol>
+                <li *ngFor="let instruction of recipe.instructions">
+                    <img *ngIf="instruction.photo" [src]="imageUrl(instruction.photo)" border='0'/>
+                    <div style="clear: both"></div>
+                    <div >{{ instruction.instruction }}</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

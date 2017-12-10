@@ -1,0 +1,17 @@
+<div class='recipe panel panel-default' [appHighlightNewRecipe]="recipe" highlightnewrecipe_colour="orange" (click)="userClicked()">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ recipe.title }}</h3>
+    </div>
+    <div class="panel-body">
+        <div class='cover-photo-holder'>
+            <img [src]="imageUrl(recipe.cover_photo, '/assets/emptybowl.jpg')" />
+        </div>
+        <p>{{ recipe.description }}</p>
+        <div>
+            <div class="data-title">Preparation Time:</div>
+            <div>{{ recipe.preparation_time }}</div>
+            <div class="data-title">Feeds how many:</div>
+            <div>{{ recipe.feeds_this_many }}</div>
+        </div>
+    </div>
+</div>

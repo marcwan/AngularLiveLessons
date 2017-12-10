@@ -1,0 +1,29 @@
+<h1> These are our Recipes</h1>
+
+<app-recipe-summary *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-summary>
+
+<div style="clear: both"></div>
+<div class="newrecipe panel panel-default">
+    <div class="panel-heading">
+        <h4>Add New Recipe</h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="recipe_in_progress.title" type="text" placeholder="Recipe Title" name="title" />
+        </div>
+        <div class="form-group">
+            <textarea rows="5" [(ngModel)]="recipe_in_progress.description" class="form-control" placeholder="Description" name="description"></textarea>
+        </div>
+        <div class="input-group">
+            <input  type="text" class="form-control" [(ngModel)]="recipe_in_progress.feeds_this_many" placeholder="Feeds this many" name="feeds_this_many" />
+            <span class="input-group-addon">people</span>
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="recipe_in_progress.preparation_time" placeholder="Preparation Time" name="preparation_time" />
+            <span class="input-group-addon">minutes</span>
+        </div>
+        <div class="input-group">
+            <input type="button" value="Add Recipe" (click)="addRecipeClicked()"/>
+        </div>
+    </div>
+</div>

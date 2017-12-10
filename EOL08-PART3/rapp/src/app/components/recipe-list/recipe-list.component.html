@@ -1,0 +1,21 @@
+<div *ngIf="!recipes_loaded && !load_error">
+    <div class="bs-callout bs-callout-info" id="callout-navs-tabs-plugin">
+        <h4> Loading Recipes </h4>
+        Please wait a moment.
+    </div>
+</div>
+
+<div *ngIf="load_error">
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span> {{ error_text }} - <a [routerLink]="['/recipes']">Back to recipe list</a>
+    </div>
+</div>
+
+
+<p *ngIf="recipes_loaded && !load_error && (!recipes || !recipes.length)">
+    There are no recipes. Why not add one now?
+</p>
+<app-recipe-summary *ngFor="let recipe of recipes" [recipe]="recipe" (userClick)="userClickedOnRecipe($event)"></app-recipe-summary>
+
+<div style="clear: both"></div>

@@ -1,0 +1,15 @@
+h1 {
+    font-size: 160%;
+}
+
+div.newrecipe {
+    max-width: 500px;
+}
+
+.darkbg {
+    background-color: #aaaaaa;
+}
+
+div.input-group {
+    margin: 10px 0;
+}

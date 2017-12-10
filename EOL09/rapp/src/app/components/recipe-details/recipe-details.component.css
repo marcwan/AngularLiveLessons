@@ -1,0 +1,52 @@
+div.cover-photo-holder img {
+    margin: auto; 
+    display : block;
+    border-radius: 8px;
+    width: 300px;
+    height: 300px;
+}
+
+div.data-title {
+    float: left;
+    font-weight: bold;
+    width: 150px;
+}
+
+div#ingredients li, div#instructions li {
+    padding: 2px 0;
+}
+
+#instructions img {
+    float: left;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 5px;
+}
+
+div#ingredients {
+    border: 1px solid #cccccc;
+    background-color: #eeeeee;
+    float: left;
+    max-width: 250px;
+    margin: 20px 0;
+    padding: 5px;
+}
+
+div#instructions {
+    float: left;
+    max-width: 400px;
+    margin: 20px 0;
+    padding: 5px 10px;
+}
+
+@media (min-width: 1050px) {
+    div.cover-photo-holder {
+        float: right;
+    }    
+
+    div#instructions, div#ingredients {
+        min-height: 500px;     
+    }
+}

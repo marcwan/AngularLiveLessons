@@ -1,0 +1,21 @@
+
+.bs-callout{
+    background-color: #eeeeee;
+    padding:0px 0px 10px 10px;
+    margin:20px 0;
+    border:1px solid #eee;
+    border-left-width:5px;
+    border-radius:3px
+}
+.bs-callout-info{
+    border-left-color:#1b809e
+}
+.bs-callout-warning {
+    border-left-color: orange;
+}
+
+@media (max-width: 800px) {
+    div {
+        zoom: 1.1;
+    }
+}
