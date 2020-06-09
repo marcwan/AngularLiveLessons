@@ -1,6 +1,6 @@
 # AngularLiveLessons
 This is the source code to accompany the "Learning Angular LiveLessons". It
-covers Angular versions .  If you are looking for the source to accompany
+covers Angular versions 8 and aove.  If you are looking for the source to accompany
 "Learning AngularJS LiveLessons", please see the repo "LearningAngularJS".
 
 Some notes:
