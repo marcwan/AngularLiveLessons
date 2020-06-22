@@ -1,0 +1,17 @@
+
+h1 {
+    font-size: 150%;
+    padding: 15px 5px;
+    margin-bottom: 15px;
+}
+
+.darkbg {
+    background-color: #aaaaaa;
+}
+
+.fade_to_white {
+    background-color: white;
+/*    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;*/
+}

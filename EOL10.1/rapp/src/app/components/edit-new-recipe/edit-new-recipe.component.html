@@ -1,0 +1,84 @@
+<p *ngIf="!recipe_loaded && !load_error">
+    Your Recipe is still loading...
+</p>
+
+<p *ngIf="load_error" style="color: red">
+    There was a problem loading your recipe: {{ load_error.error }}
+</p>
+<form #recipeForm="ngForm">
+    <div class='cover-photo-holder'>
+        <div><img [src]="coverPhotoPath()"/></div>
+        <input type='file' (change)="readUrl($event)" />
+    </div>
+    <div class='newrecipe card'>
+        <h4 class='card-header'>Add New Recipe</h4>
+        <div class='card-body'>
+            <div class='input-group'>
+                <input required type="text" class='form-control' [(ngModel)]="recipe_in_progress.title"
+                    placeholder="Recipe Title" name="title" />
+            </div>
+            <div class='input-group'>
+                <textarea required class='form-control' [(ngModel)]="recipe_in_progress.description" rows="5"
+                    placeholder="Description" name="description"></textarea>
+            </div>
+            <div class='input-group'>
+                <input required type="number" min="1'" class='form-control'
+                    [(ngModel)]="recipe_in_progress.preparation_time" placeholder="Preparation Time"
+                    name="preparation_time" />
+                <div class='input-group-append'><span class='input-group-text'>Minutes</span> </div>
+            </div>
+            <div class='input-group'>
+                <input required type="number" min="1" max="1000" class='form-control'
+                    [(ngModel)]="recipe_in_progress.feeds_this_many" placeholder="Feeds this Many"
+                    name="feeds_this_many" />
+                <div class='input-group-append'><span class='input-group-text'>People</span> </div>
+            </div>
+
+            <label>Ingredents</label>
+            <div class='ingredient' *ngFor='let ingredient of recipe_in_progress.ingredients; let i = index'>
+                <div class='form-row'>
+                    <div class='form-group col-md-5'>
+                        <input required type="text" class='form-control' [(ngModel)]="ingredient.ingredient"
+                            placeholder="Ingredient" name="ingredient_ingredient_{{i}}" />
+                    </div>
+                    <div class='form-group col-md-4'>
+                        <input required type="text" class='form-control' [(ngModel)]="ingredient.measure"
+                            placeholder="Measure" name="ingredient_measure_{{i}}" />
+                    </div>
+                    <div class='form-group col-md-2'>
+                        <input type="button" class='btn btn-secondary' (click)="removeIngredientAtIndex(i)" value="-" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="button" class='btn btn-secondary' value="Add" (click)="addIngredientPressed()" />
+            </div>
+
+            <label>Instructions</label>
+            <div class='instruction' *ngFor='let instruction of recipe_in_progress.instructions; let i = index'>
+                <img *ngIf="recipe_in_progress.instructions[i].photo || instruction_photos_for_viewing[i]" [src]="instructionPhotoPath(i)" />
+                <div class='form-row'>
+                    <div class='form-group col-md-8'>
+                        <input required type="text" class='form-control' [(ngModel)]="instruction.instruction"
+                            placeholder="Instruction" name="instruction_instruction={{i}}" /><br/>
+                            <input type='file' (change)="readInstUrl(i, $event)"/>
+                        </div>
+                    <div class='form-group col-md-2'>
+                       <input type="button" class='btn btn-secondary' (click)="removeInstructionAtIndex(i)"
+                            value="-" />
+
+                    </div>
+                </div>
+                <div style='clear: both'></div>
+            </div>
+            <div>
+                <input type="button" class='btn btn-secondary' value="Add" (click)="addInstructionPressed()" />
+            </div>
+
+            <div class='add-form-button-holder input-group'>
+                <input type="button" [disabled]="!recipeForm.valid" class='btn btn-primary' value='Add Recipe'
+                    (click)="addRecipeClicked()" />
+            </div>
+        </div>
+    </div>
+</form>

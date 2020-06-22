@@ -1,0 +1,44 @@
+
+div.cover-photo-holder {
+    float: right;
+}
+
+div.cover-photo-holder img {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+div.recipe {
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 600px;
+}
+
+div.recipe h4 {
+    font-size: 120%
+}
+
+div.recipe p {
+    margin-bottom: 10px;
+}
+
+div.recipe div.sub-title {
+    float: left;
+    font-weight: bold;
+    width: 150px;
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) and (orientation: portrait) {
+    div.recipe {
+        float: none;
+        width: 100%;
+    }
+    
+}

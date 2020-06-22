@@ -1,0 +1,14 @@
+<h1> This is a list of all available recipes </h1>
+
+<p *ngIf="!recipes_loaded && !load_error" style="color: brown">
+    Recipes are loading, please wait for a moment.
+</p>
+
+<p *ngIf="load_error" style="color: red">
+  There was a problem loading the recipe list from the server: {{ load_error.error }}
+</p>
+
+<div *ngFor="let recipe of recipes">
+    <app-recipe-summary [recipe]="recipe" (recipeClicked)="recipeClicked($event)"></app-recipe-summary>
+</div>
+

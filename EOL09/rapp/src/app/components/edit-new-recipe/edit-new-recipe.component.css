@@ -1,0 +1,59 @@
+div.cover-photo-holder {
+    float: right;
+}
+
+div.cover-photo-holder img {
+    width: 250px;
+    height: 250px;
+    margin: 5px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+div.instruction img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 5px;
+    object-fit: cover;
+    float: right;
+}
+
+
+div.newrecipe {
+    width: 600px;
+}
+
+div.newrecipe textarea {
+    margin-bottom: 10px;
+}
+
+div.input-group {
+    margin-bottom: 10px;
+}
+
+div.newrecipe div.ingredient .btn-secondary, div.newrecipe div.instruction .btn-secondary {
+    color: white;  
+}
+div.newrecipe div.add-form-button-holder {
+    margin-top: 30px;
+}
+
+
+input.ng-touched.ng-invalid, textarea.ng-touched.ng-invalid {
+    border-left: 5px solid #a94442;
+}
+
+input.ng-valid, textarea.ng-valid {
+    border-left: 5px solid #42a948;
+}
+
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) and (orientation: portrait) {
+    div.cover-photo-holder {
+        float: none;
+    }
+        
+}

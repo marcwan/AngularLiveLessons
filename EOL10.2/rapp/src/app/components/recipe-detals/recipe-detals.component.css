@@ -1,0 +1,72 @@
+
+div.cover-photo-holder {
+    float: right;
+}
+
+a, a:visited { color: blue; }
+
+div.cover-photo-holder img {
+    width: 250px;
+    height: 250px;
+    margin: 5px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+li.instruction img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    object-fit: cover;
+    border-radius: 5px;
+    float: right;
+}
+
+div.recipe h4 {
+    font-size: 120%;
+    margin: 30px 0;
+}
+
+div.recipe p {
+    margin-bottom: 10px;
+}
+
+div.recipe div.sub-title {
+    float: left;
+    font-weight: bold;
+    width: 150px;
+}
+
+div.ingredients li, div.instructions li {
+    padding: 2px 0;
+}
+
+div.ingredients {
+    border: 1pxsolid #cccccc;
+    background-color: #eeeeee;
+    float: left;
+    max-width: 350px;
+    margin: 20px 0;
+    padding: 5px;
+}
+
+div.ingredients span.measure {
+    color: grey;
+}
+
+div.instructions {
+    float: left;
+    width: 400px;
+    margin: 20px 0;
+    padding: 5px 10px;
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) and (orientation: portrait) {
+    div.recipe {
+        float: none;
+        width: 100%;
+    }
+    
+}

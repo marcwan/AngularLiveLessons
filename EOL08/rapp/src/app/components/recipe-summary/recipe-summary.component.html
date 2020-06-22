@@ -1,0 +1,15 @@
+<div class='recipe card' (click)="userClickedOnRecipe()">
+    <h5 class='card-header'> {{ recipe.title }} </h5>
+    <div class='card-body'>
+        <div class='cover-photo-holder'>
+            <img src="{{ imagePath() }}" />
+        </div>
+        <p> {{ recipe.description }} </p>
+        <div>
+            <div class='sub-title'>Preparation Time:</div>
+            <div> {{ recipe.preparation_time }} </div>
+            <div class='sub-title'>Feeds this Many:</div>
+            <div> {{ recipe.feeds_this_many }} </div>
+        </div>
+    </div>
+</div>

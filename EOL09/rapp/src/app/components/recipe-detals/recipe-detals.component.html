@@ -1,0 +1,41 @@
+<p *ngIf="!recipe_loaded && !load_error">
+    Your Recipe is still loading...
+</p>
+
+<p *ngIf="load_error" style="color: red">
+    There was a problem loading your recipe: {{ load_error.error }}
+</p>
+<div class='recipe' *ngIf="recipe_loaded">
+    <h1> {{ recipe.title }} </h1>
+    <div class='cover-photo-holder'>
+        <img src="{{ coverPhotoPath() }}" />
+        <div> {{ recipe.date_added | date:'mediumDate' }} </div>
+    </div>
+    <p> {{ recipe.description | noswearing }} </p>
+    <div>
+        <div class='sub-title'>Preparation Time:</div>
+        <div> {{ recipe.preparation_time }} </div>
+        <div class='sub-title'>Feeds this Many:</div>
+        <div> {{ recipe.feeds_this_many }} </div>
+    </div>
+
+    <div class='ingredients'>
+        <h4> Ingredients </h4>
+        <ul>
+            <li class='ingredient' *ngFor="let ingredient of recipe.ingredients">
+                {{ ingredient.ingredient }} <span class='measure'>({{ ingredient.measure }})</span>
+            </li>
+        </ul>
+    </div>
+    <div class='instructions'>
+        <h4> Preparation Instructions </h4>
+        <ol>
+            <li class='instruction' *ngFor="let instruction of recipe.instructions; let i = index">
+                    <div>{{ instruction.instruction }}</div>
+                    <img *ngIf="instruction.photo" src="{{ instructionPhotoPath(i) }}" /><br />
+                <div style='clear: both'></div>
+            </li>
+        </ol>
+    </div>
+
+</div>
